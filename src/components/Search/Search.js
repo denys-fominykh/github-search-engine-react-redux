@@ -2,6 +2,10 @@ import React, { Component } from 'react';
 import './Search.scss';
 
 export class Search extends Component {
+  onSearchChange = event => {
+    this.props.onSearchChange(event.target.value);
+  };
+
   render() {
     return (
       <div className="search__block">
@@ -19,6 +23,7 @@ export class Search extends Component {
                 className="form-control"
                 id="basic-url"
                 aria-describedby="basic-addon3"
+                onChange={this.onSearchChange}
               />
             </div>
           </div>

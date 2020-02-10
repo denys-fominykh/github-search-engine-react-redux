@@ -5,11 +5,19 @@ import { Navbar } from '../Navbar/Navbar';
 import { Search } from '../Search/Search';
 
 export class App extends Component {
+  state = {
+    username: '',
+  };
+
+  onSearchChange = username => {
+    this.setState({ username });
+  };
+
   render() {
     return (
       <React.Fragment>
         <Navbar />
-        <Search />
+        <Search onSearchChange={this.onSearchChange} />
       </React.Fragment>
     );
   }
