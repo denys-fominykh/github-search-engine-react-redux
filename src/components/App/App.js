@@ -1,11 +1,15 @@
 import React, { Component } from 'react';
 import './App.scss';
 
+import { Navbar } from '../Navbar/Navbar';
+import { Search } from '../Search/Search';
+
 export class App extends Component {
   render() {
     return (
       <React.Fragment>
-        <h1>GitHub Search Engine</h1>
+        <Navbar />
+        <Search />
       </React.Fragment>
     );
   }
