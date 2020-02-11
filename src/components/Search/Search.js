@@ -3,7 +3,7 @@ import './Search.scss';
 
 export class Search extends Component {
   onSearchChange = event => {
-    this.props.onSearchChange(event.target.value);
+    this.props.getUsername(event.target.value);
   };
 
   render() {
