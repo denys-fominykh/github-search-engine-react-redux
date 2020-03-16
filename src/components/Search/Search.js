@@ -23,6 +23,7 @@ export class Search extends Component {
                 className="form-control"
                 id="basic-url"
                 aria-describedby="basic-addon3"
+                placeholder="facebook"
                 onChange={this.onSearchChange}
               />
             </div>
