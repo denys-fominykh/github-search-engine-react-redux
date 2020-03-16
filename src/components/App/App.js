@@ -49,7 +49,14 @@ export class App extends Component {
             error,
           });
         },
-      );
+      )
+      .then(() => {
+        if (username === '') {
+          this.setState({
+            isLoaded: false,
+          })
+        }
+      });
   };
 
   render() {
