@@ -1,44 +1,44 @@
-import React, { Component } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 
-class Card extends Component {
-  render() {
-    const {
-      name,
-      location,
-      avatarUrl,
-      publicRepos,
-      publicGists,
-      followers,
-      following,
-      htmlUrl,
-    } = this.props.user;
+const Card = ({ user }) => {
+  const {
+    name,
+    location,
+    avatar_url,
+    public_repos,
+    public_gists,
+    followers,
+    following,
+    html_url,
+  } = user;
 
+  if (user) {
     return (
-      <React.Fragment>
-        <CardBlock>
-          <img src={avatarUrl} className="card-img-top" alt="..." />
-          <div className="card-body">
-            <h4 className="card-title">{name}</h4>
-            <h6 className="card-title">{location}</h6>
-            <p className="card-text">Public repositories: {publicRepos}</p>
-            <p className="card-text">Public gists: {publicGists}</p>
-            <p className="card-text">Followers: {followers}</p>
-            <p className="card-text">Following: {following}</p>
-            <a
-              href={htmlUrl}
-              className="btn btn-primary"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              View Profile
-            </a>
-          </div>
-        </CardBlock>
-      </React.Fragment>
+      <CardBlock>
+        <img src={avatar_url} className="card-img-top" alt="..." />
+        <div className="card-body">
+          <h4 className="card-title">{name}</h4>
+          <h6 className="card-title">{location}</h6>
+          <p className="card-text">Public repositories: {public_repos}</p>
+          <p className="card-text">Public gists: {public_gists}</p>
+          <p className="card-text">Followers: {followers}</p>
+          <p className="card-text">Following: {following}</p>
+          <a
+            href={html_url}
+            className="btn btn-primary"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            View Profile
+          </a>
+        </div>
+      </CardBlock>
     );
   }
-}
+
+  return null;
+};
 
 const CardBlock = styled.div`
   margin: 0 auto;
