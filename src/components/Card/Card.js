@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './Card.scss';
+import styled from 'styled-components';
 
 class Card extends Component {
   render() {
@@ -16,7 +16,7 @@ class Card extends Component {
 
     return (
       <React.Fragment>
-        <div className="card">
+        <CardBlock>
           <img src={avatarUrl} className="card-img-top" alt="..." />
           <div className="card-body">
             <h4 className="card-title">{name}</h4>
@@ -34,10 +34,15 @@ class Card extends Component {
               View Profile
             </a>
           </div>
-        </div>
+        </CardBlock>
       </React.Fragment>
     );
   }
 }
+
+const CardBlock = styled.div`
+  margin: 0 auto;
+  width: 18rem;
+`;
 
 export default Card;

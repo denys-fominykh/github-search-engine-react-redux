@@ -21,15 +21,15 @@ class App extends Component {
     error: null,
   };
 
-  getUser = username => {
+  getUser = (username) => {
     const clientId = '1b9a0ab83be88a82a5b3';
     const clientSecret = 'd12903ccc4bb851b0d67ca0ead54696eeeddfb86';
     fetch(
       `https://api.github.com/users/${username}?client_id=${clientId}&client_secret=${clientSecret}`,
     )
-      .then(res => res.json())
+      .then((res) => res.json())
       .then(
-        result => {
+        (result) => {
           this.setState({
             user: {
               name: result.name,
@@ -44,7 +44,7 @@ class App extends Component {
             isLoaded: true,
           });
         },
-        error => {
+        (error) => {
           this.setState({
             error,
           });
@@ -54,7 +54,7 @@ class App extends Component {
         if (username === '') {
           this.setState({
             isLoaded: false,
-          })
+          });
         }
       });
   };

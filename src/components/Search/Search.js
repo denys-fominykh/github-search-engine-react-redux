@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
-import './Search.scss';
+import styled from 'styled-components';
 
 class Search extends Component {
-  onSearchChange = event => {
+  onSearchChange = (event) => {
     this.props.getUsername(event.target.value);
   };
 
   render() {
     return (
-      <div className="search__block">
+      <SearchBlock>
         <div className="search__input">
           <h1>Start typing GitHub username:</h1>
           <div className="search__input">
@@ -29,9 +29,15 @@ class Search extends Component {
             </div>
           </div>
         </div>
-      </div>
+      </SearchBlock>
     );
   }
 }
+
+const SearchBlock = styled.div`
+  margin: 0 auto;
+  width: 1000px;
+  padding-top: 50px;
+`;
 
 export default Search;
