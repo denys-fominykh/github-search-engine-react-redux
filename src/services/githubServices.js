@@ -17,4 +17,4 @@ const getResourceItem = (username) => (dispatch) => {
     });
 };
 
-export default getUserAccount;
+export default getResourceItem;
