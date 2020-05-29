@@ -1,75 +1,31 @@
 import React, { Component } from 'react';
-import './App.scss';
+import { connect } from 'react-redux';
 
 import Navbar from './components/Navbar';
 import Search from './components/Search';
 import Card from './components/Card';
+import getResourceItem from './services/githubServices';
 
-class App extends Component {
-  state = {
-    user: {
-      name: '',
-      location: '',
-      avatarUrl: '',
-      publicRepos: '',
-      publicGists: '',
-      followers: '',
-      following: '',
-      htmlUrl: '',
-    },
-    isLoaded: false,
-    error: null,
+const App = ({ user, getResourceItem }) => {
+  return (
+    <div className="App">
+      <Navbar />
+      <Search getUser={getResourceItem} />
+      <Card user={user} />
+    </div>
+  );
+};
+
+const mapStateToProps = (state) => {
+  return {
+    user: state.user,
   };
+};
 
-  getUser = (username) => {
-    const clientId = '1b9a0ab83be88a82a5b3';
-    const clientSecret = 'd12903ccc4bb851b0d67ca0ead54696eeeddfb86';
-    fetch(
-      `https://api.github.com/users/${username}?client_id=${clientId}&client_secret=${clientSecret}`,
-    )
-      .then((res) => res.json())
-      .then(
-        (result) => {
-          this.setState({
-            user: {
-              name: result.name,
-              location: result.location,
-              avatarUrl: result.avatar_url,
-              publicRepos: result.public_repos,
-              publicGists: result.public_gists,
-              followers: result.followers,
-              following: result.following,
-              htmlUrl: result.html_url,
-            },
-            isLoaded: true,
-          });
-        },
-        (error) => {
-          this.setState({
-            error,
-          });
-        },
-      )
-      .then(() => {
-        if (username === '') {
-          this.setState({
-            isLoaded: false,
-          });
-        }
-      });
+const mapDispatchToProps = (dispatch) => {
+  return {
+    getResourceItem: (username) => dispatch(getResourceItem(username)),
   };
+};
 
-  render() {
-    const { user } = this.state;
-
-    return (
-      <React.Fragment>
-        <Navbar />
-        <Search getUsername={this.getUser} />
-        {this.state.isLoaded ? <Card user={user} /> : false}
-      </React.Fragment>
-    );
-  }
-}
-
-export default App;
+export default connect(mapStateToProps, mapDispatchToProps)(App);
