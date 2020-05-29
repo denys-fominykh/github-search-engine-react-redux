@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './Card.scss';
 
-export class Card extends Component {
+class Card extends Component {
   render() {
     const {
       name,
@@ -39,3 +39,5 @@ export class Card extends Component {
     );
   }
 }
+
+export default Card;

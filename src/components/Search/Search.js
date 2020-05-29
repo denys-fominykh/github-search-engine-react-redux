@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './Search.scss';
 
-export class Search extends Component {
+class Search extends Component {
   onSearchChange = event => {
     this.props.getUsername(event.target.value);
   };
@@ -33,3 +33,5 @@ export class Search extends Component {
     );
   }
 }
+
+export default Search;

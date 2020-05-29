@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import './App.scss';
 
-import { Navbar } from '../Navbar/Navbar';
-import { Search } from '../Search/Search';
-import { Card } from '../Card/Card';
+import Navbar from './components/Navbar';
+import Search from './components/Search';
+import Card from './components/Card';
 
-export class App extends Component {
+class App extends Component {
   state = {
     user: {
       name: '',
@@ -71,3 +71,5 @@ export class App extends Component {
     );
   }
 }
+
+export default App;
