@@ -1,3 +1,3 @@
-import getUserAccount from './actions';
+import { getUserAccount, resetUserAccount } from './actions';
 
-export default getUserAccount;
+export { getUserAccount, resetUserAccount };

@@ -1,5 +1,5 @@
 import axios from 'axios';
-import getUserAccount from '../actions';
+import { getUserAccount } from '../actions';
 
 const _apiBase = 'https://api.github.com/users';
 const _clientId = '1b9a0ab83be88a82a5b3';

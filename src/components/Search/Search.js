@@ -1,14 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 
-const Search = ({ getUser }) => {
+const Search = ({ getUser, resetUser }) => {
   const [username, setUsername] = useState('');
 
   useEffect(() => {
     if (username !== '') {
       getUser(username);
+    } else {
+      resetUser();
     }
-  }, [username, getUser]);
+  }, [username, getUser, resetUser]);
 
   return (
     <SearchBlock>

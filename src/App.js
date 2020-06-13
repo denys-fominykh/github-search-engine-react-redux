@@ -5,12 +5,13 @@ import Navbar from './components/Navbar';
 import Search from './components/Search';
 import Card from './components/Card';
 import getResourceItem from './services/githubServices';
+import { resetUserAccount } from './actions';
 
-const App = ({ user, getResourceItem }) => {
+const App = ({ user, getResourceItem, resetUserAccount }) => {
   return (
     <div className="App">
       <Navbar />
-      <Search getUser={getResourceItem} />
+      <Search getUser={getResourceItem} resetUser={resetUserAccount} />
       <Card user={user} />
     </div>
   );
@@ -25,6 +26,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     getResourceItem: (username) => dispatch(getResourceItem(username)),
+    resetUserAccount: () => dispatch(resetUserAccount()),
   };
 };
 

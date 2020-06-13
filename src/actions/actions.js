@@ -1,6 +1,8 @@
-const getUserAccount = (payload) => ({
+export const getUserAccount = (payload) => ({
   type: 'GET_USERNAME_ACCOUNT',
   payload,
 });
 
-export default getUserAccount;
+export const resetUserAccount = () => ({
+  type: 'RESET_USERNAME_ACCOUNT',
+});
